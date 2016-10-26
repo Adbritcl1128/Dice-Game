@@ -17,10 +17,11 @@
       document.querySelector('.dice aside:last-child').innerText = dietwo;
 
 
-      var diceTotal = dieone + dietwo;
+      var message = status.innertext = 'You rolled a ' + (dieone + dietwo) + '.';
 
-      status.innertext = '' + diceTotal + '.';
+      console.log(message);
 
+      if (message === 11 || message === 7) status.innertext = 'Winner';
     });
 
 
