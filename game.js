@@ -1,10 +1,22 @@
 (function diceGame() {
 
 
+
     // Use document.querySelector('...') to find HTML elements
     // The argument into the function is a CSS selector!
     // Any HTML element has an `innerText` property that you can
-    // access (or change) for the contents of that element.
+    // access (or change) for the contents of that element
+
+    function setDateTime (){
+      var now = new Date;
+      var dice = {};
+      dice.startdate = ('' + now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate());
+      dice.starttime = (now.getHours() + ';' + now.getMinutes () );
+      return 'Game Started' + dice;
+    }
+    document.querySelector('.message').innerText = setDateTime();
+
+
 
     document.querySelector('button').addEventListener('click', function buttonClicked() {
 
@@ -17,11 +29,24 @@
       document.querySelector('.dice aside:last-child').innerText = dietwo;
 
 
-      var message = status.innertext = 'You rolled a ' + (dieone + dietwo) + '.';
+      var message  = 'You rolled a ' + (dieone + dietwo) + '.';
+      var winner = (dieone) + (dietwo) === 11 || (dieone) + (dietwo) === 7
+
 
       console.log(message);
 
-      if (message === 11 || message === 7) status.innertext = 'Winner';
+      if ((dieone + dietwo) === 11 || (dieone + dietwo) === 7){
+          document.querySelector('.result').innerText ="Winner";
+        console.log('Winner');
+
+
+      } else  {
+        document.querySelector('.result').innerText ="Try Again";
+        console.log('Try Again');
+      }
+
+
+
     });
 
 
